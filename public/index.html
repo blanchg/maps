@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8' />
+    <title></title>
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+    <script src='mapbox-gl.js'></script>
+    <script src='topojson.v1.js'></script>
+    <link href='mapbox-gl.css' rel='stylesheet' />
+    <style>
+        body { margin:0; padding:0; }
+        #map { position:absolute; top:0; bottom:0; width:100%; }
+        #controls { position:absolute; top:0; left:0; }
+    </style>
+</head>
+<body>
+
+<div id='map'></div>
+
+<div id='controls'>
+<button onclick="load('masters')">Masters</button>
+<button onclick="load('reserverise')">Reserve Rise</button>
+<button onclick="load('other')">Other</button>
+<button id="btnSave" onclick="saveMap()">Save For Offline</button>
+<button onclick="clearSavedMaps()">Clear Saved Maps</button><br>
+<label><input type="checkbox" onchange="autosaveChanged(event)">Automatically cache maps</label>
+</div>
+<script src='index.js'></script>
+</body>
+</html>

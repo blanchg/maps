@@ -1,0 +1,23 @@
+CACHE MANIFEST
+# This is a comment.
+# Cache manifest version 0.0.2
+# If you change the version number in this comment,
+# the cache manifest is no longer byte-for-byte
+# identical.
+
+# CACHE section
+0-255.pbf
+mapbox-gl.css
+mapbox-gl.js
+topojson.v1.js
+notAvailable.html
+style.json
+index.js
+
+NETWORK:
+# All URLs that start with the following lines
+# are whitelisted.
+/maps/
+ 
+#FALLBACK:
+#/maps/	notAvailable.json
