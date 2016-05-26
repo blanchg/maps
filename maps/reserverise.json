@@ -1,17 +1,22 @@
 {
-  "type": "Feature",
-  "properties": {
-    "type": "bounds",
-    "name": "Reserve Rise"
-  },
-  "geometry": {
-    "type": "Polygon",
-    "coordinates": [[
-        [153.284554,-27.883001],
-        [153.287506,-27.883001],
-        [153.287506,-27.888814],
-        [153.284554,-27.888814],
-        [153.284554,-27.883001]
-    ]]
+  "type": "FeatureCollection",
+  "features": [
+  {
+    "type": "Feature",
+    "properties": {
+      "type": "bounds",
+      "name": "Reserve Rise"
+    },
+    "geometry": {
+      "type": "Polygon",
+      "coordinates": [[
+          [153.284554,-27.883001],
+          [153.287506,-27.883001],
+          [153.287506,-27.888814],
+          [153.284554,-27.888814],
+          [153.284554,-27.883001]
+      ]]
+    }
   }
+  ]
 }

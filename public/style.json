@@ -438,6 +438,73 @@
             "text-halo-blur": 1,
             "text-halo-width": 2
         }
+    },
+    {
+        "id": "poi-outline",
+        "type": "circle",
+        "source": "maps",
+        "interactive": true,
+        "minzoom": 5,
+        "filter": [
+            "all",
+            ["==", "$type", "Point"],
+            ["==", "type", "poi"]
+        ],
+        "paint": {
+            "circle-color": "hsla(85%, 100%, 0%, 100%)",
+            "circle-radius": 6
+        }
+    },    
+    {
+        "id": "poi-green",
+        "type": "circle",
+        "source": "maps",
+        "interactive": true,
+        "minzoom": 5,
+        "filter": [
+            "all",
+            ["==", "$type", "Point"],
+            ["==", "type", "poi"],
+            ["==", "class", "green"]
+        ],
+        "paint": {
+            "circle-color": "hsla(85%, 100%, 50%, 100%)",
+            "circle-radius": 5
+        }
+    },
+    {
+        "id": "poi-yellow",
+        "type": "circle",
+        "source": "maps",
+        "interactive": true,
+        "minzoom": 5,
+        "filter": [
+            "all",
+            ["==", "$type", "Point"],
+            ["==", "type", "poi"],
+            ["==", "class", "yellow"]
+        ],
+        "paint": {
+            "circle-color": "hsla(60%, 100%, 50%, 100%)",
+            "circle-radius": 5
+        }
+    },
+    {
+        "id": "poi-red",
+        "type": "circle",
+        "source": "maps",
+        "interactive": true,
+        "minzoom": 5,
+        "filter": [
+            "all",
+            ["==", "$type", "Point"],
+            ["==", "type", "poi"],
+            ["==", "class", "red"]
+        ],
+        "paint": {
+            "circle-color": "hsla(0%, 100%, 50%, 100%)",
+            "circle-radius": 5
+        }
     }
     ]
 }

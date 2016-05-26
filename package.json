@@ -16,6 +16,7 @@
     "turf-explode": "^3.0.5",
     "turf-extent": "^1.0.4",
     "turf-inside": "^3.0.5",
+    "turf-merge": "^1.0.2",
     "unzip": "^0.1.11"
   }
 }

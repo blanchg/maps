@@ -10,12 +10,24 @@ const turf = {
       fs = require('fs'),
       topojson = require("topojson");;
 
-var bounds = JSON.parse(fs.readFileSync(process.argv[2]));
+var map = JSON.parse(fs.readFileSync(process.argv[2]));
+
+var bounds = null;
+// Extract the bounding box, it should be the first one
+map.features.some(function(d) {
+    bounds = d;
+    return d.geometry.type == "Polygon" && d.properties.type == "bounds";
+});
+
+if (bounds == null) {
+    console.error("Input doesn't include a map boundary (type = 'bounds')");
+    return;
+}
 
 var buffer = turf.buffer(bounds, 100, 'meters');
 
 var clipped = {
-    "features": [bounds],
+    "features": map.features,
     "type":"FeatureCollection",
     "crs":{"type":"name","properties":{"name":"urn:ogc:def:crs:OGC:1.3:CRS84"}}
 };

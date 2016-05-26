@@ -12,7 +12,9 @@ var map = new mapboxgl.Map({
 
 
 map.on('load', function () {
-    load('reserverise');
+    map.addControl(new mapboxgl.Navigation());
+    map.addControl(new mapboxgl.Geolocate()); 
+    load('masters');
 });
 
 var emptyFeature = {

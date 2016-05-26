@@ -1,17 +1,56 @@
 {
-  "type": "Feature",
-  "properties": {
-    "type": "bounds",
-    "name": "Masters"
+  "type": "FeatureCollection",
+  "features": [
+  {
+    "type": "Feature",
+    "properties": {
+      "type": "bounds",
+      "name": "Masters"
+    },
+    "geometry": {
+      "type": "Polygon",
+      "coordinates": [[
+          [153.2978688,-27.8387926],
+          [153.3041972,-27.8387926],
+          [153.3041972,-27.8454037],
+          [153.2978688,-27.8454037],
+          [153.2978688,-27.8387926]
+      ]]
+    }
   },
-  "geometry": {
-    "type": "Polygon",
-    "coordinates": [[
-        [153.2978688,-27.8387926],
-        [153.3041972,-27.8387926],
-        [153.3041972,-27.8454037],
-        [153.2978688,-27.8454037],
-        [153.2978688,-27.8387926]
-    ]]
+  {
+    "type": "Feature",
+    "properties": {
+      "type": "poi",
+      "class": "red"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [153.2978988,-27.8397926]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "type": "poi",
+      "class": "yellow",
+      "description": "Bob"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [153.2979688,-27.8389926]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "type": "poi",
+      "class": "green"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [153.2988688,-27.8407926]
+    }
   }
+  ]
 }
