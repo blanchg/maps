@@ -22,7 +22,8 @@
     "type": "Feature",
     "properties": {
       "type": "poi",
-      "class": "red"
+      "class": "red",
+      "description": "3 Somewhere Rd"
     },
     "geometry": {
       "type": "Point",
@@ -45,7 +46,8 @@
     "type": "Feature",
     "properties": {
       "type": "poi",
-      "class": "green"
+      "class": "green",
+      "description": "<b>Formatting</b> is available"
     },
     "geometry": {
       "type": "Point",

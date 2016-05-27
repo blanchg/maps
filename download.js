@@ -1,7 +1,10 @@
 const fs = require('fs');
 const request = require('request');
 
-var r = request.defaults({'proxy':'http://proxy.cat.com'});
+var r = request;
+if (process.env.https_proxy != null) {
+	r = request.defaults({'proxy':process.env.https_proxy});
+}
 const unzip = require('unzip');
 
 var file = fs.createWriteStream('data/gold-coast_australia.imposm-geojson.zip');

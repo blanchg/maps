@@ -6,6 +6,7 @@
     <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
     <script src='mapbox-gl.js'></script>
     <script src='topojson.v1.js'></script>
+    <script src='turf-buffer.js'></script>
     <link href='mapbox-gl.css' rel='stylesheet' />
     <style>
         body { margin:0; padding:0; }
@@ -23,7 +24,8 @@
 <button onclick="load('other')">Other</button>
 <button id="btnSave" onclick="saveMap()">Save For Offline</button>
 <button onclick="clearSavedMaps()">Clear Saved Maps</button><br>
-<label><input type="checkbox" onchange="autosaveChanged(event)">Automatically cache maps</label>
+<label><input type="checkbox" onchange="autosaveChanged(event)">Automatically cache maps</label><br>
+<label><input type="checkbox" checked onchange="followChanged(event)">Follow</label><br>
 </div>
 <script src='index.js'></script>
 </body>

@@ -13,9 +13,79 @@ var map = new mapboxgl.Map({
 
 map.on('load', function () {
     map.addControl(new mapboxgl.Navigation());
-    map.addControl(new mapboxgl.Geolocate()); 
+    // map.addControl(new mapboxgl.Geolocate()); 
     load('masters');
 });
+
+// When a click event occurs near a marker icon, open a popup at the location of
+// the feature, with description HTML from its properties.
+map.on('click', function (e) {
+    var features = map.queryRenderedFeatures(e.point, { filter: ["==", "type", "poi"] });
+
+    if (!features.length) {
+        return;
+    }
+
+    var feature = features[0];
+
+    // Populate the popup and set its coordinates
+    // based on the feature found.
+    var popup = new mapboxgl.Popup()
+        .setLngLat(feature.geometry.coordinates)
+        .setHTML(feature.properties.description)
+        .addTo(map);
+});
+
+var lngLat = null;
+
+if ("geolocation" in navigator) {
+  /* geolocation is available */
+    var watchID = navigator.geolocation.watchPosition(function(position) {
+        // do_something(position.coords.latitude, position.coords.longitude);
+        console.log(position.coords.accuracy);
+        lngLat =  [position.coords.longitude, position.coords.latitude];
+        var point = {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": lngLat
+            }
+        };
+        var features = [point];
+        var accuracy = position.coords.accuracy;
+        if (!isNaN(accuracy) && accuracy > 0) {
+            var circle = turf.buffer(point, accuracy, 'meters');
+            features.push(circle);
+        }
+        map.getSource('position').setData({
+            "features": features,
+            "type":"FeatureCollection",
+            "crs":{"type":"name","properties":{"name":"urn:ogc:def:crs:OGC:1.3:CRS84"}}
+        });
+
+        if (follow)
+            map.setCenter(lngLat);
+    }, function (a,b) {
+        console.log(a,b);
+    },{
+        enableHighAccuracy: true,
+        timeout: 5000,
+        maximumAge: 0
+    });
+} else {
+  /* geolocation IS NOT available */
+}
+
+var follow = true;
+
+var followChanged = function(e) {
+    follow = e.target.checked;
+    if (follow && lngLat != null) {
+        map.flyTo({
+            center: lngLat
+        });
+    }
+}
 
 var emptyFeature = {
     'type':'Topology',
@@ -53,7 +123,6 @@ function clearSavedMaps() {
 }
 
 function autosaveChanged(e) {
-    console.log(e.target.checked);
     autosave = e.target.checked;
     // save it now instead of waiting for next load
     if (autosave) {
